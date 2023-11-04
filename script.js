@@ -1,6 +1,6 @@
 
-// //1.Do the below programs in anonymous function & IIFE
-//Print odd numbers in an array
+// // //1.Do the below programs in anonymous function & IIFE
+// //Print odd numbers in an array
 
 //a.print all odd number in anonymousfuction
 var arr1=[1,2,3,4,5,6,7,8,9,10];
@@ -44,27 +44,7 @@ sum+=num[i];
 })(numbers);
  
 
- // return all prime number in an array anonymous function
- let prime_array=function(numArray){
-  numArray = numArray.filter((number) => {
-    for (var i = 2; i <= Math.sqrt(number); i++) {
-      if (number % i === 0){ return false};
-    }
-    return true;
-  });
-  console.log(prime_array([1,2,3,4,5,6,7,8]));
-}
-  //  return all prime number in array IIEF
-  (  
-    function(numArray){
-       numArray = numArray.filter((number) => {
-         for (var i = 2; i <= Math.sqrt(number); i++) {
-           if (number % i === 0) return false;
-         }
-         return true;
-       });
-       console.log(numArray);
-   })([1,2,3,4])
+ 
 
  // Convert all the strings to title caps in a string array in anonymous fuction
  const str = ["foo bar baz"];
@@ -143,13 +123,36 @@ console.log(palindrome(arr));
   console.log(result)  
   })
  ((arr));
-/*//Return median of two sorted arrays of the same size.
-let sort_arr1=[1,2,3,4,5,6,7,8];
-let sort_arr2=[9,10,11,12,13,14];
-let new_arr=sort_arr1.sort(sort_arr2);
-console.log(new_arr);*/
+// //Return median of two sorted arrays of the same size.
+let arr_1=[1,2,3,4,5,6,7,10];
+let arr_2=[15,14,13,12,11,55];
 
 
+let sort_an=function (arr1,arr2){
+  let new_arr=[...arr1,...arr2];
+ new_arr.sort((a,b)=>a-b);
+ 
+let n=new_arr.length
+  if(n%2==0){
+    return  ((new_arr[n/2-1]+new_arr[n/2])/2)
+  }else{
+   return (new_arr[Math.floor(n/2)])
+  }
+}
+console.log(sort_an(arr_1,arr_2))
+
+
+
+//rotate an array k time
+(function(d,k){
+  for(var i=0;i<k;i++){
+   d.push(d[i])//d.push(d.shift())
+  }for(var i=0;i<k;i++){
+  d.shift()
+  }
+console.log(d)
+});
+(([1,2,3,4,5],4));
 
 //2. arrow function
 //print all odd number 
@@ -162,6 +165,7 @@ console.log(arr[i]);
 }
 allOdd_Arr([1,2,3,4,5,6,7,8]);
  //sum all array element 
+ 
 const arrow_sum=(num)=>{
   let sum=0;
 for(i=0;i<num.length;i++)
@@ -226,4 +230,41 @@ for(i=0;i<arr.length;i++){
  return result 
 }
 console.log(arrow_palindrome(arr));
+
+//find median of two sorted array iife
+
+(function (arr1,arr2){
+  let new_arr=[...arr1,...arr2];
+ new_arr.sort((a,b)=>a-b);
+ 
+let n=new_arr.length
+   if(n%2==0){
+   console.log((new_arr[n/2-1]+new_arr[n/2])/2)
+  }else{
+   console.log (new_arr[Math.floor(n/2)])
+  }
+})
+(([2,3,4],[8,7,6]))
+
+// return all prime number in an array anonymous function
+ let prime_array=function(numArray){
+
+    for (var i = 2; i <=numArray.length; i++) {
+      if (number % i === 0){ return false};
+    }
+    return true;
+  
+  console.log(prime_array([1,2,3,4,5,6,7,8]));
+}
+  //  return all prime number in array IIEF
+  (  
+    function(numArray){
+       numArray = numArray.filter((number) => {
+         for (var i = 2; i <= Math.sqrt(number); i++) {
+           if (number % i === 0) return false;
+         }
+         return true;
+       });
+       console.log(numArray);
+   })([1,2,3,4])
  
